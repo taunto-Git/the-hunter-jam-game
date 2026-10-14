@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bs2q622jwdwjs"]
+
+[ext_resource type="Script" uid="uid://dri7f5tnr02x7" path="res://Scripts/entity_base.gd" id="1_bxcs2"]
+
+[node name="Entity_base" type="CharacterBody2D" unique_id=815204437]
+script = ExtResource("1_bxcs2")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=93878367]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784228432]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=532003674]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=827990040]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=814389190]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1609666140]

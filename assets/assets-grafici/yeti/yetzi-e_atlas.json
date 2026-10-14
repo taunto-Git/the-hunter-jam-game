@@ -1,0 +1,271 @@
+{
+  "version": 3,
+  "layout": "strip",
+  "source": "animate",
+  "image": "yetzi-e_spritesheet.png",
+  "sheet_w": 1628,
+  "sheet_h": 44,
+  "frame_w": 44,
+  "frame_h": 44,
+  "frame_count": 37,
+  "columns": 37,
+  "rows": 1,
+  "source_frame_w": 44,
+  "source_frame_h": 44,
+  "scale": 1,
+  "pad": 6,
+  "source_pad": 6,
+  "animations": {
+    "idle": {
+      "start": 0,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        520,
+        300,
+        560,
+        300
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "walk": {
+      "start": 4,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "run": {
+      "start": 8,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "jump": {
+      "start": 12,
+      "count": 5,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ms": [
+        170,
+        80,
+        120,
+        90,
+        160
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        4
+      ]
+    },
+    "hurt": {
+      "start": 17,
+      "count": 3,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "ms": [
+        70,
+        120,
+        160
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        2
+      ]
+    },
+    "attack": {
+      "start": 20,
+      "count": 3,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "ms": [
+        160,
+        180,
+        100
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        2
+      ]
+    },
+    "celebrate": {
+      "start": 23,
+      "count": 2,
+      "source_indices": [
+        0,
+        1
+      ],
+      "ms": [
+        170,
+        230
+      ],
+      "easing": [
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        1
+      ]
+    },
+    "skip": {
+      "start": 25,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "hop": {
+      "start": 29,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        140,
+        80,
+        110,
+        150
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "bigjab": {
+      "start": 33,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        200,
+        70,
+        220,
+        140
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    }
+  }
+}

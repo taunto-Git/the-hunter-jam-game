@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://colkwl88f88sp"]
+
+[ext_resource type="Script" uid="uid://bam3n3hruf5bq" path="res://Scripts/main_game.gd" id="1_1xcnr"]
+[ext_resource type="PackedScene" uid="uid://knhngijasitg" path="res://Scene/player.tscn" id="1_f6udf"]
+[ext_resource type="PackedScene" uid="uid://c1h571xj36gs" path="res://Scene/mappa.tscn" id="2_1xcnr"]
+[ext_resource type="PackedScene" uid="uid://cupn03re0ra3w" path="res://Scene/Screen.tscn" id="3_r34rm"]
+[ext_resource type="PackedScene" uid="uid://bu3c8af2aujkl" path="res://Scene/box.tscn" id="5_1xcnr"]
+[ext_resource type="PackedScene" uid="uid://dydnif2mavxls" path="res://Scene/neve.tscn" id="7_ow1sv"]
+
+[node name="main" type="Node2D" unique_id=935786823]
+position = Vector2(-519, -345)
+script = ExtResource("1_1xcnr")
+
+[node name="y_sort" type="Node2D" parent="." unique_id=790151757]
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" parent="y_sort" unique_id=1889155752 instance=ExtResource("2_1xcnr")]
+
+[node name="Player" parent="y_sort" unique_id=636182224 instance=ExtResource("1_f6udf")]
+y_sort_enabled = true
+
+[node name="Box" parent="y_sort" unique_id=87183970 instance=ExtResource("5_1xcnr")]
+position = Vector2(-332, 309)
+
+[node name="CanvasLayer" parent="." unique_id=492216516 instance=ExtResource("3_r34rm")]
+
+[node name="Spawn_time" type="Timer" parent="." unique_id=1302185399]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Neve" parent="." unique_id=1822352927 instance=ExtResource("7_ow1sv")]
+position = Vector2(43, -653)
+
+[connection signal="timeout" from="Spawn_time" to="." method="_on_spawn_time_timeout"]

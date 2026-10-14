@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://knhngijasitg"]
+
+[ext_resource type="Script" uid="uid://brew5od5734nq" path="res://Scripts/player.gd" id="1_y8w33"]
+[ext_resource type="Texture2D" uid="uid://bxebrq60s15ob" path="res://assets/assets-grafici/assets-miei/Gianni.png" id="2_r6jsd"]
+[ext_resource type="AudioStream" uid="uid://bq3rt86lot2pq" path="res://assets/assets-audio/remington.wav" id="3_p6qlh"]
+[ext_resource type="Script" uid="uid://sw7lksfgaigq" path="res://Scripts/State_Machine.gd" id="3_xa75v"]
+[ext_resource type="Script" uid="uid://dnm8bf2efqmam" path="res://Scripts/idle_player.gd" id="4_58ae2"]
+[ext_resource type="Script" uid="uid://cg8oraslyv7xp" path="res://Scripts/mirino.gd" id="5_r6jsd"]
+[ext_resource type="Texture2D" uid="uid://h04am6jre7wm" path="res://assets/assets-grafici/assets-miei/Shotgun.png" id="7_p6qlh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sw5t"]
+atlas = ExtResource("2_r6jsd")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0s4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sw5t")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r6jsd"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ql73s"]
+radius = 11.0
+
+[node name="Player" type="CharacterBody2D" unique_id=636182224]
+script = ExtResource("1_y8w33")
+Health = 50
+Speed = 200
+Sprint = 600
+Bullets = 2
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=217728225]
+scale = Vector2(0.5078125, 0.53125)
+sprite_frames = SubResource("SpriteFrames_v0s4m")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=929274204]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_r6jsd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=51215785]
+stream = ExtResource("3_p6qlh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=536773611]
+
+[node name="FSM" type="Node" parent="." unique_id=869916881 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_xa75v")
+initial_state = NodePath("Idle_player")
+
+[node name="Idle_player" type="Node" parent="FSM" unique_id=552629521 node_paths=PackedStringArray("themselfs")]
+script = ExtResource("4_58ae2")
+themselfs = NodePath("../..")
+metadata/_custom_type_script = "uid://dnm8bf2efqmam"
+
+[node name="mirino" type="Node2D" parent="." unique_id=439303388]
+script = ExtResource("5_r6jsd")
+
+[node name="Sprite2D" type="Sprite2D" parent="mirino" unique_id=1370792149]
+position = Vector2(10, 1.0000001)
+scale = Vector2(0.4789406, 0.36853808)
+texture = ExtResource("7_p6qlh")
+
+[node name="shoot_point" type="Node2D" parent="mirino" unique_id=1669287893]
+position = Vector2(0, 48)
+
+[node name="take_area" type="Area2D" parent="." unique_id=804898009]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="take_area" unique_id=835468780]
+shape = SubResource("CircleShape2D_ql73s")
+debug_color = Color(0.767075, 0.4458524, 0.10224912, 0.41960785)
+
+[node name="interact_timer" type="Timer" parent="." unique_id=72234937]
+one_shot = true
+autostart = true
+
+[node name="walking" type="AudioStreamPlayer2D" parent="." unique_id=1473842474]
+
+[connection signal="timeout" from="interact_timer" to="." method="_on_interact_timer_timeout"]

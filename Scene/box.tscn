@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bu3c8af2aujkl"]
+
+[ext_resource type="Script" uid="uid://dsu4igba4uh1" path="res://Scripts/box.gd" id="1_hdacx"]
+[ext_resource type="Texture2D" uid="uid://bypui6es1l11r" path="res://assets/assets-grafici/assets-miei/box.png" id="2_ky0eu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ql73s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql73s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ql73s"]
+radius = 25.0
+
+[node name="Box" type="StaticBody2D" unique_id=87183970]
+physics_material_override = SubResource("PhysicsMaterial_ql73s")
+script = ExtResource("1_hdacx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2057000308]
+texture = ExtResource("2_ky0eu")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268648732]
+shape = SubResource("RectangleShape2D_ql73s")
+
+[node name="open_area" type="Area2D" parent="." unique_id=1152951752]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="open_area" unique_id=2118295709]
+shape = SubResource("CircleShape2D_ql73s")
+debug_color = Color(0.9469742, 0.19923994, 0.31113642, 0.41960785)
+
+[connection signal="area_entered" from="open_area" to="." method="_on_open_area_area_entered"]

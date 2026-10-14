@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dbftk0bjpyfm7"]
+
+[ext_resource type="Script" uid="uid://dj11m8u2iyt6g" path="res://Scripts/bullet.gd" id="1_k7h5k"]
+[ext_resource type="Texture2D" uid="uid://3skuafm47a40" path="res://assets/assets-grafici/assets-miei/red-horns-32x.png" id="2_jm66p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql73s"]
+size = Vector2(2, 2.5)
+
+[node name="Bullet" type="Area2D" unique_id=1425936863]
+script = ExtResource("1_k7h5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1574113002]
+shape = SubResource("RectangleShape2D_ql73s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=100814081]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(0.05078125, 0.054687507)
+texture = ExtResource("2_jm66p")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1394277953]
+position = Vector2(-2, -3)
+rect = Rect2(0, 0, 4, 6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cupn03re0ra3w"]
+
+[ext_resource type="Script" uid="uid://tedldvsfannr" path="res://Scripts/arma_rect.gd" id="1_gkykd"]
+[ext_resource type="Texture2D" uid="uid://d0qql8rhfxhvx" path="res://assets/assets-grafici/assets-miei/UI_food.png" id="2_jatop"]
+[ext_resource type="Script" uid="uid://d0ovfowqpk1m3" path="res://Scripts/food_rect.gd" id="3_5cb7s"]
+[ext_resource type="Texture2D" uid="uid://bl60npkb2tokc" path="res://assets/assets-grafici/assets-miei/UI.png" id="4_5cb7s"]
+[ext_resource type="Texture2D" uid="uid://dpwtktsv2ccqq" path="res://assets/assets-grafici/assets-miei/coldness_bar_under.png" id="5_6g37q"]
+[ext_resource type="Script" uid="uid://jlbdh0ft4qv6" path="res://Scripts/coldness_and_battery_rect.gd" id="5_i8jbd"]
+[ext_resource type="Texture2D" uid="uid://c7hjg0u56r80g" path="res://assets/assets-grafici/assets-miei/coldness_bar_rect.png" id="6_6xmvi"]
+[ext_resource type="Texture2D" uid="uid://28110bkf2v4s" path="res://assets/assets-grafici/assets-miei/coldness_bar_full.png" id="7_sw1ve"]
+[ext_resource type="Texture2D" uid="uid://cji2ibj6f32y3" path="res://assets/assets-grafici/assets-miei/electricity_bar_under.png" id="8_sw1ve"]
+[ext_resource type="Texture2D" uid="uid://ccu3v17qk0mng" path="res://assets/assets-grafici/assets-miei/electricity_over_bar.png" id="9_i8jbd"]
+
+[node name="UI" type="CanvasLayer" unique_id=492216516]
+
+[node name="Arma_rect" type="TextureRect" parent="." unique_id=233774812]
+offset_left = 920.0
+offset_top = 417.0
+offset_right = 1149.0
+offset_bottom = 658.0
+script = ExtResource("1_gkykd")
+
+[node name="food_rect" type="TextureRect" parent="." unique_id=765925591]
+anchors_preset = -1
+anchor_left = -0.016
+anchor_top = 0.846
+anchor_right = 0.16000001
+anchor_bottom = 0.99100006
+offset_left = -0.5679989
+offset_top = -0.20800781
+offset_right = -0.32000732
+offset_bottom = 4.83197
+texture = ExtResource("2_jatop")
+script = ExtResource("3_5cb7s")
+
+[node name="Label_food" type="Label" parent="food_rect" unique_id=278446104]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.409
+anchor_top = 0.5
+anchor_right = 0.512
+anchor_bottom = 0.84800005
+offset_left = -0.027000427
+offset_top = -0.5
+offset_right = 0.06399536
+offset_bottom = 0.04799652
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_water" type="Label" parent="food_rect" unique_id=1254129209]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.739
+anchor_top = 0.5
+anchor_right = 0.84200007
+anchor_bottom = 0.869
+offset_left = -0.016998291
+offset_top = -1.5
+offset_right = 2.0739899
+offset_bottom = -0.03099823
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coldness_battery_rect" type="TextureRect" parent="." unique_id=1749014739]
+anchors_preset = -1
+anchor_left = -0.016
+anchor_right = 0.15900001
+anchor_bottom = 0.119
+offset_left = -1.5679989
+offset_top = -22.000002
+offset_right = -0.16801453
+offset_bottom = -0.11199951
+texture = ExtResource("4_5cb7s")
+script = ExtResource("5_i8jbd")
+
+[node name="coldness_bar" type="TextureProgressBar" parent="Coldness_battery_rect" unique_id=1944075409]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13800001
+anchor_top = 0.31300002
+anchor_right = 0.84200007
+anchor_bottom = 0.64900005
+offset_left = -0.013999939
+offset_top = 0.013000488
+offset_right = -76.92601
+offset_bottom = 6.748993
+scale = Vector2(2.2376826, 0.8625495)
+value = 20.0
+texture_under = ExtResource("5_6g37q")
+texture_over = ExtResource("6_6xmvi")
+texture_progress = ExtResource("7_sw1ve")
+
+[node name="Electricity_bar" type="TextureProgressBar" parent="Coldness_battery_rect" unique_id=538703135]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 54.000004
+offset_right = 93.0
+offset_bottom = 86.00001
+scale = Vector2(2.1599998, 1.3820287)
+value = 60.0
+texture_under = ExtResource("8_sw1ve")
+texture_over = ExtResource("6_6xmvi")
+texture_progress = ExtResource("9_i8jbd")
+
+[node name="Timer" type="Timer" parent="Coldness_battery_rect/Electricity_bar" unique_id=972260455]
+autostart = true
+
+[connection signal="timeout" from="Coldness_battery_rect/Electricity_bar/Timer" to="Coldness_battery_rect" method="_on_timer_timeout"]

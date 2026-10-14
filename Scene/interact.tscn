@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bt6hb223dq3md"]
+
+[ext_resource type="Script" uid="uid://8i05t4f836cf" path="res://Scripts/interact.gd" id="1_isqcp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0s4m"]
+
+[node name="interact" type="Area2D" unique_id=50761248]
+script = ExtResource("1_isqcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=269381514]
+shape = SubResource("CircleShape2D_v0s4m")
+
+[node name="Timer" type="Timer" parent="." unique_id=1542263239]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dydnif2mavxls"]
+
+[ext_resource type="Script" uid="uid://dfr3wymdmwoif" path="res://Scripts/cpu_particles_2d.gd" id="1_4iioq"]
+
+[sub_resource type="Curve" id="Curve_ql73s"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.10169492, -232.56635), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Neve" type="Node2D" unique_id=1822352927]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=881612192]
+amount = 2000
+lifetime = 30.0
+speed_scale = 0.4
+randomness = 0.22
+emission_shape = 3
+emission_rect_extents = Vector2(100, 3)
+gravity = Vector2(-100, 980)
+angular_velocity_max = 10.0
+angular_velocity_curve = SubResource("Curve_ql73s")
+script = ExtResource("1_4iioq")
+
+[node name="Timer" type="Timer" parent="." unique_id=813031394]
+
+[connection signal="timeout" from="Timer" to="CPUParticles2D" method="_on_timer_timeout"]
